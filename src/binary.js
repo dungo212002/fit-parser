@@ -71,8 +71,10 @@ function readData(blob, fDef, startIndex, options) {
     if (fDef.type === 'string') {
         const temp = [];
         for (let i = 0; i < fDef.size; i++) {
-            if (blob[startIndex + i]) {
+            if (blob[startIndex + i]!=0) {
                 temp.push(blob[startIndex + i]);
+            } else {
+                break; 
             }
         }
         return new Buffer.from(temp).toString('utf-8');
